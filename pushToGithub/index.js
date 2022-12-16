@@ -21,7 +21,7 @@ async function main(){
     if(exclude.includes(dir) || !await isDir(dir))continue;
     data = `${data}\"${dir}\",`
   }
-  writeFile("list.js",data+"]")
+  await writeFile("list.js",data+"]")
   exec("git add *")
   exec(`git commit -m \"update ${new Date().toDateString()}\"`)
   exec("git push")
