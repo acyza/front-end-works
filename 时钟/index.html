@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script src="./js/index.js"></script>
+</head>
+<body>
+  <div class="clock">
+    <svg id="scale" viewBox="0 0 110 110" class="scale">
+      <filter id="light">
+        <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+        <feOffset dx="0.3" dy="0.3"></feOffset>
+        <feMerge>
+          <feMergeNode />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+      <circle cx="55" cy="55" r="50" filter="url(#light)" class="clock_border"></circle>
+      <circle cx="55" cy="55" r="47" class="scale_12"></circle>
+      <circle cx="55" cy="55" r="47" class="scale_60"></circle>
+    </svg>
+    <div class="hour light"></div>
+    <div class="minute light"></div>
+    <div class="second light"></div>
+  </div>
+</body>
+</html>

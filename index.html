@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的Web前端作品集</title>
+  <script src="list.js"></script>
+  <script>
+    onload = ()=>{
+      for(const work of works){
+        const link = document.createElement("a")
+        link.href = `${work}/index.html`
+        link.innerText = work
+        document.body.appendChild(link)
+      }
+    }
+  </script>
+  <style>
+    body{
+      padding: 10px;
+      display: flex;
+      flex-direction:column;
+    }
+  </style>
+</head>
+<body>
+</body>
+</html>
