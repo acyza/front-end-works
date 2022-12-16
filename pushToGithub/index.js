@@ -16,10 +16,10 @@ function exec(name){
 async function main(){
   const dirs = await readdir("./")
   let data = "const list=["
-  const exclude = ["previewServer","pushToGithub",".git"]
+  const exclude = ["previewServer","pushToGithub",".git",".github"]
   for(const dir of dirs) {
     if(exclude.includes(dir) || !await isDir(dir))continue;
-    data = `${data}${dir},`
+    data = `${data}\"${dir}\",`
   }
   writeFile("list.js",data+"]")
   exec("git add *")
