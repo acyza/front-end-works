@@ -1,0 +1,25 @@
+:root{
+  --primary-color: rgb(255, 50, 50);
+  --text-primary-color: rgb(135, 135, 135);
+  color: var(--text-primary-color);
+  user-select: none;
+}
+
+html,body{
+  margin: 0px;
+  min-width: 1000px;
+  height: 100%;
+  width: 100%;
+  overflow:auto;
+}
+body{
+  background-image: linear-gradient(rgb(128, 187, 255),rgb(203, 215, 255));
+}
+a{
+  text-decoration: none;
+  color: var(--text-primary-color);
+}
+
+a:hover{
+  color: var(--primary-color);
+}

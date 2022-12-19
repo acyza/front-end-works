@@ -1,8 +1,14 @@
 const { existsSync,watch } = require("fs")
-const { readFile } = require("fs/promises")
+const { readFile, stat } = require("fs/promises")
 const http = require("http")
 
 const waitQueue = [];
+
+async function isDir(path){
+  if(!existsSync(path))return false;
+  const result = await stat(path)
+  return result.isDirectory()
+}
 
 (async ()=>{
   const watchDir = await watch("./",{recursive:true})
@@ -25,10 +31,12 @@ const server = new http.Server(async(req,res)=>{
   if(req.url == "/watch") return watchHandler(req,res);
   let url = "./"+decodeURI(req.url)
   if(/[\/|\\]$/.test(url))
-    url = url + "index.html"
+    url = url + "/index.html"
   console.log(url)
-  if(existsSync(decodeURI(url)))
-    res.write(await readFile(url))
+  if(existsSync(decodeURI(url))){
+    if(await isDir(url)) res.write("<script>location.href=`${location.href}/`</script>");
+    else res.write(await readFile(url))
+  }
   else
     res.statusCode = 404
   if(/\.html$/.test(url))
