@@ -14,6 +14,9 @@ html,body{
 }
 body{
   background-image: linear-gradient(rgb(128, 187, 255),rgb(203, 215, 255));
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 a{
   text-decoration: none;

@@ -32,7 +32,7 @@ window.addEventListener('load',()=>{
     title: `测试商品${i}`,
     money: (Math.ceil(Math.random() * 1000) / 100 + 5.0001 + '').replace(/(?<=\...).*/,''),
     tags:["七天无理由"],
-    img:"a"
+    img:"image.png"
   }))
 })
 
